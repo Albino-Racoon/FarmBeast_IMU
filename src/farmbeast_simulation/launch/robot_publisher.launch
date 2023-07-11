@@ -1,0 +1,17 @@
+<launch>    
+
+        <!-- Rviz config -->
+        <arg name="rviz_config" default="$(find farmbeast_simulation)/rviz/config.rviz"/>
+        <!-- Robot descripton -->
+        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find farmbeast_simulation)/urdf/robot.urdf.xacro" />
+        <!-- Running nodes -->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"> 
+        <param name="publish_frequency" type="double" value="30.0" />
+        <remap from="/joint_states" to="/farmbeast/joint_states" />
+        </node>
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+        <node type="rviz" name="rviz" pkg="rviz" args="-d $(arg rviz_config)" />
+        <node type="cmd_vel_control" name="cmd_vel_control" pkg="farmbeast_simulation" />
+        <node type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" output="screen"/>
+
+</launch>
