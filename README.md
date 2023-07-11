@@ -29,3 +29,4 @@ komanda za zagon posaeznega pythonscripta u ROS-u:  rosrun farmbeast_simulation 
 
 primer:  rosrun farmbeast_simulation nevem.py
 ![image](https://github.com/Albino-Racoon/FarmBeast_IMU/assets/75669037/eaec61a5-4295-4d67-ba2a-6b79f57f93b3)
+video: https://www.youtube.com/watch?v=gVh0vaGZA80
